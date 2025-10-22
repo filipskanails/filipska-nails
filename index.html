@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ІНСТАКВАДРАТИ. ІДЕАЛЬНИЙ КОМБІ. ІДЕАЛЬНИЙ ФРЕНЧ. ТВІЙ NEXT LEVEL.</title>
+  <meta name="description" content="Цей курс — твоя можливість перейти з “майстра базовика” у впевнену, сильну майстриню з власним стилем і високим прайсом. Next Level — коли твої роботи говорять самі за себе.">
+  <meta name="color-scheme" content="dark">
+  <style>
+    :root{
+      --bg:#0c100e; --card:#121614; --line:#223129;
+      --text:#e7f0ea; --muted:#a1b3ab;
+      --accent:#004a25; --accent-2:#0b7d47; --accent-rgb:0,74,37; --accent2-rgb:11,125,71;
+      --radius:24px; --shadow:0 10px 28px rgba(0,0,0,.24);
+      --img-top:320px; --cta-top:560px; --bubble-top:440px; --glow-top:380px; --hero-h:760px;
+      --promoOverlap:18px;
+      --cta-extra:72px;
+      --mint:#8EF3C7; --pop:#FFB56B; --pop-2:#FF8A5C; --text-strong:#f3fbf7;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial,sans-serif;
+      overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:720px;margin:0 auto;padding:16px}
+    .accent{color:var(--accent-2);font-weight:900;text-shadow:0 0 8px rgba(var(--accent2-rgb),.32)}
+    .nowrap{white-space:nowrap}
+
+    body{ position:relative; z-index:0; }
+    body::before{
+      content:""; position:fixed; inset:-20% -10% -30% -10%; z-index:-1; pointer-events:none;
+      background:
+        radial-gradient(60% 40% at 80% 10%, rgba(255,181,107,.10), transparent 55%),
+        radial-gradient(50% 60% at 15% 20%, rgba(142,243,199,.10), transparent 60%),
+        radial-gradient(40% 40% at 85% 75%, rgba(11,125,71,.18), transparent 70%);
+      filter:blur(28px);
+    }
+    h1,h2,.footer .brand{ color:var(--text-strong); }
+
+    /* ===== HERO ===== */
+    #hero{margin-left:-16px;margin-right:-16px;width:calc(100% + 32px);position:relative;z-index:1}
+    .hero-stage{position:relative;height:var(--hero-h);overflow:hidden;isolation:isolate}
+    .hero-stage::after{
+      content:""; position:absolute; right:50%; top:var(--glow-top);
+      width:min(120vmin,680px); height:min(120vmin,680px); border-radius:50%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(var(--accent2-rgb),1) 0%,
+          rgba(var(--accent2-rgb),.70) 28%, rgba(var(--accent-rgb),.40) 60%,
+          rgba(var(--accent-rgb),.16) 78%, rgba(var(--accent-rgb),.08) 90%, transparent 100%),
+        radial-gradient(60% 40% at 50% 0%, rgba(255,255,255,.14), transparent 55%);
+      filter:blur(16px); transform:translate(50%,-28%); pointer-events:none; z-index:0;
+    }
+    .hero-text{position:absolute;top:2%;left:50%;transform:translateX(-50%);
+      width:calc(100% - 32px);max-width:640px;text-align:center;text-shadow:0 1px 0 rgba(0,0,0,.2);z-index:2}
+    .eyebrow{font-size:13px;letter-spacing:.06em;color:var(--muted)}
+    .hl{font-size:clamp(28px,7vw,38px);line-height:1.18;font-weight:900;margin:10px 0 8px}
+    .hl.hl-mix{display:grid;gap:2px}
+    .hl.hl-mix .line{display:block}
+    .hl.hl-mix .line.r{text-align:right}.hl.hl-mix .line.l{text-align:left}
+    .lead{color:var(--muted);margin:0 0 10px;text-align:center}
+    .hero-img{position:absolute;right:50%;transform:translateX(44%);
+      top:var(--img-top); width:min(620px,112vw);object-fit:contain;
+      filter:drop-shadow(0 16px 28px rgba(0,0,0,.35)); z-index:1; pointer-events:none;}
+    .hero-bubble{position:absolute; right:8%; top:var(--bubble-top); max-width:60vw; color:#fff;
+      background:linear-gradient(180deg, rgba(18,25,21,.66), rgba(18,25,21,.52));
+      border:1px solid rgba(142,243,199,.35); padding:12px 14px; border-radius:28px;
+      backdrop-filter:blur(8px); box-shadow:0 10px 26px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.10);
+      font-size:14px; line-height:1.35; z-index:2;}
+    .hero-cta{position:absolute;left:50%;transform:translateX(-50%);top:var(--cta-top);
+      display:grid;gap:10px;text-align:center;z-index:3}
+    .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:999px;background:
+        radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.18), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg,var(--accent-2),var(--accent));color:#fff;font-weight:900;text-transform:uppercase;
+      font-size:clamp(18px,5vw,22px);letter-spacing:.3px;white-space:nowrap;box-shadow:var(--shadow), 0 0 0 1px rgba(255,255,255,.06) inset;text-shadow:0 1px 0 rgba(0,0,0,.18);}
+    .cta{ position:relative; overflow:hidden; }
+    .cta::after{
+      content:""; position:absolute; top:-60%; bottom:-60%; left:-120%;
+      width:50%; transform:skewX(-20deg);
+      background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.28) 50%, transparent 100%);
+      animation:ctaShine 5.5s ease-in-out infinite;
+    }
+    @keyframes ctaShine{ 0%{ left:-120%; } 15%{ left:140%; } 100%{ left:140%; } }
+
+    /* ===== PROMO / ТАРИФИ ===== */
+    #promo{margin-top:calc(-1 * var(--promoOverlap));padding-top:var(--promoOverlap);
+      margin-left:-16px;margin-right:-16px;width:calc(100% + 32px);position:relative;z-index:5}
+    .promoCard{position:relative;border-radius:var(--radius); padding:18px; background:var(--card);
+      border:1px solid var(--line); backdrop-filter:blur(6px);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02),0 10px 26px rgba(0,0,0,.22); overflow:hidden;}
+    .promoCard::before{content:""; position:absolute; inset:-20% -10% auto -10%; height:56%;
+      background:radial-gradient(60% 100% at 40% 0%, rgba(var(--accent2-rgb),.18), transparent 70%),
+      radial-gradient(60% 100% at 80% 20%, rgba(142,243,199,.08), transparent 70%); filter:blur(16px); pointer-events:none;}
+    .promoHead{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px; flex-wrap:wrap;}
+    .promoTitle{
+      flex:1 1 100%;
+      text-align:center;
+      font-size:clamp(26px,6.5vw,32px);
+      font-weight:900;
+    }
+    .promoBadges{
+      flex:1 1 100%;
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+    }
+    .pBadge{
+      font-size:12px; padding:6px 10px; border-radius:999px; letter-spacing:.2px; color:#0a2419; font-weight:900; white-space:nowrap;
+      background:linear-gradient(135deg, rgba(142,243,199,.92), rgba(255,181,107,.92));
+      box-shadow:0 8px 22px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.18);
+      text-shadow:0 1px 0 rgba(255,255,255,.35);
+    }
+
+    .countdown{display:flex;gap:10px;justify-content:space-between;margin:10px 0 6px}
+    .countbox{flex:1 1 0;border:1px solid #2b4136;border-radius:14px;background:#0f1713;padding:14px 8px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+    .countbox .n{font-size:clamp(22px,8vw,36px);font-weight:900;line-height:1;white-space:nowrap}
+    .countbox .t{color:var(--muted);margin-top:6px;font-size:clamp(12px,3.6vw,15px);white-space:nowrap}
+
+    .tariffs{ display:grid; gap:14px; grid-template-columns:1fr; margin-top:10px }
+    @media (min-width:740px){ .tariffs{ grid-template-columns:1fr 1fr; } }
+
+    .tariff{position:relative; border-radius:22px; padding:16px; overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0)), #111713;
+      border:1px solid #2b3e36;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.028), 0 14px 34px rgba(0,0,0,.28);
+      display:flex; flex-direction:column; will-change:transform, box-shadow;
+    }
+    .tariff::after{content:""; position:absolute; inset:auto -12% -22% -12%; height:44%;
+      background:radial-gradient(60% 100% at 50% 100%, rgba(var(--accent2-rgb),.14), transparent 60%); filter:blur(12px); pointer-events:none;}
+
+    .tHead{ display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:88px; flex-wrap:nowrap; overflow:hidden }
+
+    /* ACCENTED tariff titles (white, larger, subtle animations) */
+    .tName{
+      font-size:clamp(22px,5.8vw,28px);
+      font-weight:900;
+      letter-spacing:.3px;
+      color:var(--text-strong);
+      display:flex; align-items:center; gap:8px; min-width:0;
+      position:relative;
+      transition:transform .18s ease, text-shadow .18s ease;
+    }
+    .tName .tLabel{ position:relative; display:inline-block; }
+    .tName .tLabel::after{
+      content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; border-radius:2px;
+      background:linear-gradient(90deg, rgba(142,243,199,.9), rgba(255,181,107,.9));
+      transform:scaleX(0); transform-origin:left; transition:transform .45s ease;
+    }
+    .tariff:hover .tName{ text-shadow:0 0 10px rgba(255,255,255,.12); transform:translateY(-1px); }
+    .tariff:hover .tName .tLabel::after,
+    .tariff:focus-within .tName .tLabel::after{ transform:scaleX(1); }
+
+    .tTag{
+      font-size:11px; padding:4px 8px; border-radius:999px; letter-spacing:.2px; color:#062217; font-weight:900; text-transform:uppercase; white-space:nowrap;
+      background:linear-gradient(135deg, rgba(11,125,71,.95), rgba(0,74,37,.95)); box-shadow:0 6px 18px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.18);
+    }
+
+    .priceWrap{display:grid; gap:6px; justify-items:end; max-width:100%; min-width:0}
+    .priceRow{display:flex;align-items:baseline;gap:12px;margin:4px 0 0; flex-wrap:nowrap; min-width:0 }
+    .pricePill{
+      display:inline-flex;align-items:baseline;gap:8px;padding:10px 16px;border-radius:999px;white-space:nowrap;
+      background:
+        radial-gradient(130% 180% at 50% 0%, rgba(255,255,255,.22), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg, var(--accent-2), var(--accent));
+      color:#e6fff3;font-weight:900;box-shadow:0 12px 32px rgba(0,0,0,.32), 0 0 0 1px rgba(255,255,255,.06) inset
+    }
+    .priceNum{font-size:clamp(20px,6vw,26px);font-weight:900;line-height:1;white-space:nowrap}
+    .cur{opacity:.95;font-size:clamp(16px,4.8vw,18px);line-height:1;white-space:nowrap}
+    .old{color:#95a49b;text-decoration:line-through;font-size:16px;display:none;white-space:nowrap}
+    .saveBadge{
+      display:inline-block; max-width:100%;
+      padding:6px 10px; border-radius:999px; font-size:12px; color:#0a2419; font-weight:900; line-height:1.2;
+      background:linear-gradient(135deg, rgba(142,243,199,.95), rgba(255,181,107,.92));
+      box-shadow:0 6px 16px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.22);
+      text-shadow:0 1px 0 rgba(255,255,255,.3);
+      justify-self:end; word-break:break-word; white-space:normal;
+    }
+
+    .tList{
+      list-style:none; padding:0; margin:12px 0 16px;
+      display:grid; gap:10px;
+      font-size:clamp(16px,4.4vw,19px);
+      line-height:1.55;
+    }
+    .tList li{
+      position:relative;
+      display:flex; gap:10px; align-items:flex-start;
+      background:linear-gradient(180deg, rgba(14,20,17,.62), rgba(14,20,17,.50));
+      border:1px solid #30463b;
+      border-radius:14px;
+      padding:10px 12px;
+      transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .tList li:hover{ transform:translateY(-1px); border-color:#2f4a3f; box-shadow:0 8px 22px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.04); }
+    .tList b{ font-weight:900; color:var(--mint); text-shadow:none; }
+    .tList li::before{
+      content:"";
+      width:22px; height:22px; border-radius:50%;
+      background:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9"><path fill="%23062d20" d="M4.5 9L0 4.2l1.4-1.3L4.5 6.2 10.6 0 12 1.4z"/></svg>') center/12px 9px no-repeat,
+        radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.22), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow:0 0 0 3px rgba(var(--accent2-rgb),.16);
+      border:1px solid #2b4136;
+      flex:0 0 22px;
+      margin-top:2px;
+    }
+    .tariff .cta{ width:100%; min-height:52px; justify-content:center; text-align:center; margin-top:auto; }
+
+    /* ===== ABOUT ===== */
+    #about{margin-top:20px;margin-left:-16px;margin-right:-16px;width:calc(100% + 32px)}
+    #about h2{text-align:center;margin-bottom:10px}
+    .aboutLead{text-align:center;color:var(--muted);margin:0 0 18px}
+    .aboutCard{position:relative;border-radius:var(--radius);padding:18px 14px;background:var(--card);
+      border:1px solid var(--line);backdrop-filter:blur(6px);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02),0 10px 26px rgba(0,0,0,.22)}
+    .aboutCard::before{content:"";position:absolute;inset:-10% -8% auto -8%;height:44%;
+      background:radial-gradient(60% 100% at 50% 0%, rgba(var(--accent2-rgb),.18), transparent 70%);
+      filter:blur(10px);pointer-events:none;border-radius:var(--radius) var(--radius) 0 0;}
+    .aboutList{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+    .aboutItem{display:flex;align-items:center;gap:12px;line-height:1.45;border-radius:16px;padding:6px 0}
+    .aboutItem .icon{position:relative;width:32px;height:32px;border-radius:50%;flex:0 0 32px;
+      background:conic-gradient(from 210deg, rgba(var(--accent2-rgb),.95), rgba(var(--accent2-rgb),.85), rgba(var(--accent-rgb),.95));
+      box-shadow:0 4px 12px rgba(0,0,0,.35),0 0 0 4px rgba(var(--accent2-rgb),.12); border:1px solid #2b4136;overflow:hidden}
+    .aboutItem .icon::before{content:"";position:absolute;inset:2px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), rgba(255,255,255,.06));mix-blend:screen}
+    .aboutItem .icon::after{content:"";position:absolute;left:9px;top:10px;width:11px;height:6px;border-left:3px solid #052d21;border-bottom:3px solid #052d21;transform:rotate(-45deg)}
+    .aboutItem .txt{
+      flex:1;min-width:0;word-break:normal;overflow-wrap:anywhere;
+      /* ↑ увеличили кегль блоков в «Про мене» */
+      font-size:clamp(17px,4.8vw,20px);
+      line-height:1.5;
+    }
+
+    /* ===== REVIEWS ===== */
+    #reviews{ margin:28px 0; margin-left:-16px; margin-right:-16px; width:calc(100% + 32px); }
+    #reviews .head{ text-align:center; margin-bottom:12px; }
+    #reviews .muted{ color:var(--muted); }
+    .reel{ position:relative; overflow-x:auto; overflow-y:visible;
+      display:grid; grid-auto-flow:column; grid-auto-columns:86%;
+      gap:14px; padding:6px 16px 12px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+    }
+    .slide{ scroll-snap-align:center; position:relative; padding:4px; }
+    .msg{ display:flex; gap:12px; align-items:flex-start }
+    .avatar{
+      width:44px; height:44px; flex:0 0 44px; border-radius:50%;
+      background:
+        radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.24), transparent 55%),
+        linear-gradient(135deg, var(--accent-2), var(--accent)),
+        linear-gradient(135deg, rgba(255,181,107,.6), transparent);
+      box-shadow: 0 0 0 3px rgba(142,243,199,.22);
+      display:grid; place-items:center; color:#062217; font-weight:900;
+    }
+    .avatar .name{
+      font-size:12px; line-height:1.05; padding:0 6px; text-align:center;
+      max-width:40px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .bubble{
+      position:relative; flex:1;
+      background:linear-gradient(180deg, rgba(18,25,21,.75), rgba(18,25,21,.65));
+      border:1px solid #2e4439; border-radius:18px;
+      padding:14px 14px 12px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.03), 0 18px 40px rgba(0,0,0,.28);
+      transition:transform .28s ease, opacity .28s ease;
+    }
+    .bubble::after{
+      content:""; position:absolute; left:-8px; bottom:12px; width:16px; height:16px;
+      transform:rotate(45deg);
+      background:linear-gradient(180deg, rgba(18,25,21,.75), rgba(18,25,21,.65));
+      border-left:1px solid #2e4439; border-bottom:1px solid #2e4439;
+      filter:blur(.2px);
+    }
+    .quote{ font-size:16px; line-height:1.5; }
+    .b-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:10px; gap:10px; }
+    .stars{ font-size:14px; letter-spacing:1px; opacity:.9 }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(6px) } to { opacity:1; transform:none } }
+    .bubble .quote, .bubble .b-foot { opacity:0 }
+    .slide.is-active .bubble{ transform:translateY(-2px) }
+    .slide.is-active .bubble .quote  { animation: fadeUp .55s ease .04s both; }
+    .slide.is-active .bubble .b-foot { animation: fadeUp .45s ease .12s both; }
+    @media (prefers-reduced-motion:reduce){
+      .bubble .quote, .bubble .b-foot { opacity:1; animation:none !important; transform:none !important }
+      .slide.is-active .bubble{ transform:none; }
+    }
+    .navDots{display:flex; justify-content:center; gap:8px; margin-top:10px}
+    .navDots button{ width:8px; height:8px; border-radius:999px; border:none; padding:0; background:#2a3a34; opacity:.7; }
+    .navDots button[aria-current="true"]{ background:var(--accent-2); opacity:1; }
+    .reviewsArrows{position:relative; height:0}
+    .reviewsArrows .arrow{
+      position:absolute; top:-86px; z-index:2; width:34px; height:34px; border-radius:999px; border:1px solid var(--line);
+      background:rgba(12,16,14,.7); display:grid; place-items:center; box-shadow: 0 8px 22px rgba(0,0,0,.25);
+    }
+    .reviewsArrows .prev{ left:22px } .reviewsArrows .next{ right:22px }
+    .reviewsArrows .arrow:active{ transform:scale(.98) }
+
+    /* ===== PROGRAM ===== */
+    #program{ margin:28px 0; margin-left:-16px; margin-right:-16px; width:calc(100% + 32px); position:relative; }
+    #program .head{ text-align:center; margin-bottom:12px; position:relative; }
+    #program .head .sub{ color:var(--muted); }
+    #program::before{
+      content:""; position:absolute; inset:-6% 0 auto 0; height:42%;
+      background:
+        radial-gradient(60% 130% at 10% 0%, rgba(142,243,199,.18), transparent 60%),
+        radial-gradient(50% 120% at 90% 30%, rgba(255,181,107,.16), transparent 65%),
+        radial-gradient(40% 100% at 50% 0%, rgba(11,125,71,.22), transparent 70%);
+      filter:blur(18px); pointer-events:none; z-index:0;
+    }
+    .trackGrid{
+      position:relative; z-index:1;
+      display:grid; gap:14px; grid-template-columns:1fr; padding:0 16px;
+    }
+    @media (min-width:740px){ .trackGrid{ grid-template-columns:1fr 1fr 1fr; } }
+
+    details.track{
+      border-radius:22px; background:rgba(16,23,19,.65); border:1px solid #2e4439;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02), 0 16px 36px rgba(0,0,0,.28);
+      overflow:hidden; position:relative;
+    }
+    details.track::before{
+      content:""; position:absolute; left:-40%; top:-18px; width:180%; height:38px;
+      background:linear-gradient(90deg, rgba(142,243,199,.0), rgba(142,243,199,.55) 22%, rgba(255,181,107,.5) 50%, rgba(142,243,199,.55) 78%, rgba(142,243,199,.0));
+      filter:blur(6px); transform:rotate(-2deg);
+      pointer-events:none;
+    }
+    summary.tHead{
+      list-style:none; cursor:pointer; user-select:none;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:14px 16px; position:relative; z-index:1;
+    }
+    summary.tHead::-webkit-details-marker{ display:none }
+    .tTitle{ font-weight:900; font-size:18px; display:flex; align-items:center; gap:10px }
+    .tDot{
+      width:10px; height:10px; border-radius:50%;
+      background:linear-gradient(135deg, var(--mint), var(--pop));
+      box-shadow:0 0 0 4px rgba(142,243,199,.18);
+    }
+    .tBadge{
+      font-size:12px; padding:6px 10px; border-radius:999px; color:#042015; font-weight:900;
+      background:linear-gradient(135deg, rgba(142,243,199,.92), rgba(255,181,107,.92));
+      box-shadow:0 8px 20px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.18);
+    }
+    .tChevron{
+      width:26px; height:26px; border-radius:999px; border:1px solid #2e4439; display:grid; place-items:center;
+      background:#0f1713; color:#cfe6dc; font-weight:900; transition:transform .25s ease;
+    }
+    details[open] .tChevron{ transform:rotate(180deg) }
+
+    .tListPro{
+      counter-reset: step;
+      margin:0; padding:6px 14px 14px; display:grid; gap:10px;
+    }
+    .tListPro li{
+      list-style:none; display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:flex-start;
+      background:linear-gradient(180deg, rgba(14,20,17,.62), rgba(14,20,17,.50));
+      border:1px solid #30463b; border-radius:14px; padding:10px 12px;
+    }
+    .tListPro li .num{
+      counter-increment: step;
+      width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-size:12px; font-weight:900; color:#062217;
+      background:
+        radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.22), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow:0 0 0 3px rgba(142,243,199,.18);
+    }
+    .tListPro li .num::after{ content: counter(step) }
+    .tListPro li .txt{ font-size:clamp(15.5px,4.2vw,18px); line-height:1.5; }
+    .tListPro b{ color:var(--mint); }
+
+    /* ===== FOOTER ===== */
+    footer.footer{margin-top:26px;padding:22px 16px 96px;text-align:center;color:var(--muted);border-top:1px solid var(--line)}
+    .footer .brand{font-size:22px;color:var(--text);margin:0 0 6px;font-weight:700}
+    .footer .legal{font-size:14px;line-height:1.5;max-width:720px;margin:10px auto 0;opacity:.95}
+    .footer .links{margin-top:10px;font-size:14px}
+    .footer .links a{color:var(--muted);text-decoration:underline dotted;margin:0 8px}
+    .footer small.copy{display:block;margin-top:12px;opacity:.7}
+
+    /* ===== FLOATING CTA ===== */
+    .floater{position:fixed;left:0;right:0;bottom:12px;z-index:5000;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .28s ease,transform .28s ease}
+    .floater.show{opacity:1;transform:translateY(0);pointer-events:auto}
+    .floater-inner{max-width:720px;margin:0 auto;padding:0 16px}
+    .floater .cta{width:100%}
+    @media (prefers-reduced-motion:reduce){ .floater{transition:none} }
+
+    /* ===== CHECKOUT MODAL ===== */
+    .co-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.5); display:grid; place-items:center; z-index:9999; opacity:0; pointer-events:none; transition:opacity .22s ease;}
+    .co-backdrop.show{ opacity:1; pointer-events:auto }
+    .co-modal{ width:min(720px, 96vw); max-height:96vh; overflow:auto; border-radius:22px; background:var(--card); border:1px solid var(--line); box-shadow:0 30px 60px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.02); padding:16px; position:relative; z-index:10000 }
+    .co-top{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px }
+    .co-title{ font-weight:900; font-size:20px }
+    .co-close{ width:36px; height:36px; border-radius:999px; border:1px solid var(--line); background:#0f1713; color:#c9ded4; display:grid; place-items:center }
+    .ps{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0; }
+    .ps button{ border-radius:16px; border:1px solid var(--line); background:#0f1713; padding:10px; text-align:left; }
+    .ps .pname{ font-weight:900 } .ps .pprice{ font-weight:800; margin-top:6px }
+    .ps button[aria-selected="true"]{ background:linear-gradient(135deg,var(--accent-2),var(--accent)); color:#062217; border-color:transparent; box-shadow:0 10px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.16); }
+    .co-grid{ display:grid; gap:10px; grid-template-columns:1fr 1fr; }
+    .co-grid .full{ grid-column:1 / -1 } .field{ display:grid; gap:6px }
+    .field label{ font-size:13px; color:#cfe6dc }
+    .field input[type="text"], .field input[type="email"], .field input[type="tel"]{ width:100%; padding:12px 12px; border-radius:12px; background:#0f1713; border:1px solid #2b4136; color:var(--text); }
+    .agree{ display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#cfe6dc } .agree input{ transform:translateY(2px) }
+    .co-err{ display:none; margin-top:6px; padding:10px; border-radius:10px; background:rgba(255,80,80,.08); border:1px solid rgba(255,80,80,.25); color:#ffbcbc; }
+    .co-err.show{ display:block } .co-actions{ display:flex; gap:10px; align-items:center; justify-content:space-between; margin-top:10px }
+    .co-pay{ font-size:14px; color:#cfe6dc }
+
+    /* States */
+    @keyframes tariffPulse{
+      0%{ transform:scale(1); box-shadow:0 10px 26px rgba(0,0,0,.22); }
+      35%{ transform:scale(1.02); box-shadow:0 20px 46px rgba(0,0,0,.38), 0 0 0 2px rgba(142,243,199,.24) inset; }
+      100%{ transform:scale(1); box-shadow:0 10px 26px rgba(0,0,0,.22); }
+    }
+    .tariff.pulse{ animation: tariffPulse .7s ease; }
+    @media (prefers-reduced-motion:reduce){ .tariff.pulse{ animation:none } }
+
+    /* Адаптив */
+    @media (max-width: 420px){
+      .promoHead{ row-gap:6px }
+      .promoBadges{ justify-content:center }
+      .pBadge{ font-size:11px; padding:5px 8px; }
+
+      .tHead{ flex-wrap:wrap; min-height:unset; }
+      .tName{ flex:1 1 100%; margin-bottom:6px }
+      .priceWrap{ justify-items:start; width:100% }
+      .priceRow{ gap:8px; flex-wrap:wrap }
+      .pricePill{ padding:8px 12px }
+      .priceNum{ font-size:20px }
+      .cur{ font-size:14px }
+      .old{ font-size:14px }
+      .saveBadge{ font-size:11.5px; padding:5px 8px; justify-self:start }
+
+      .tList{ font-size:15.5px; line-height:1.45; gap:8px }
+      .tList li{ padding:8px 10px; gap:8px }
+      .tList li::before{ width:20px; height:20px; flex:0 0 20px; }
+
+      .tListPro li .txt{ font-size:15.5px }
+    }
+
+    /* Заблокувати фон при відкритій модалці + сховати флоатер */
+    body.modal-open{ overflow:hidden }
+    body.modal-open .floater{ display:none !important; }
+
+    /* FIX: стрелка раскрытия всегда справа в одной строке */
+    summary.tHead{ position:relative; padding-right:48px; }
+    .tHead .tChevron{ position:absolute; right:16px; top:50%; transform:translateY(-50%); }
+    details[open] .tHead .tChevron{ transform:translateY(-50%) rotate(180deg); }
+    @media (max-width:360px){
+      summary.tHead{ padding-right:44px; }
+      .tHead .tChevron{ right:12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="hero-stage">
+      <img class="hero-img" src="img/main.png" alt="Інструктор курсу">
+      <div class="hero-text">
+        <div class="eyebrow">ОНЛАЙН КУРС ВІД ІНСТРУКТОРА МАНІКЮРУ&nbsp;<span class="accent nowrap">АННИ ФІЛІПСЬКОЇ</span></div>
+        <h1 class="hl hl-mix">
+          <span class="line l">ІНСТАКВАДРАТИ.</span><span class="line r">ІДЕАЛЬНИЙ КОМБІ.</span>
+          <span class="line l">ІДЕАЛЬНИЙ ФРЕНЧ.</span><span class="line r">ТВІЙ NEXT LEVEL.</span>
+        </h1>
+        <p class="lead">Цей курс - твоя можливість перейти з "майстра базовика" у впевнену, сильну майстриню з власним стилем і високим прайсом.<br>Next Level - коли твої роботи говорять самі за себе.</p>
+      </div>
+      <div class="hero-bubble" id="heroBubble">Клієнти шукають сучасних і професійних майстрів. Не втрачай свій шанс бути серед кращих!</div>
+      <div class="hero-cta">
+        <a id="buyTop" class="cta" href="#promo">Придбати курс</a>
+      </div>
+    </section>
+
+    <!-- ===== PROMO / ТАРИФИ ===== -->
+    <section id="promo" class="section">
+      <div class="promoCard">
+        <div class="promoHead">
+          <div class="promoTitle">Тарифи</div>
+          <div class="promoBadges">
+            <span class="pBadge">Активна знижка</span>
+            <span class="pBadge">Оптимальний прайс</span>
+          </div>
+        </div>
+
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="countbox"><div class="n" id="cd-h">00</div><div class="t">Годин</div></div>
+          <div class="countbox"><div class="n" id="cd-m">00</div><div class="t">Хвилин</div></div>
+          <div class="countbox"><div class="n" id="cd-s">00</div><div class="t">Секунд</div></div>
+        </div>
+
+        <div class="tariffs">
+          <!-- ГРУПОВИЙ -->
+          <article class="tariff" aria-labelledby="t-g-name">
+            <div class="tHead">
+              <div class="tName" id="t-g-name"><span class="tLabel">Груповий</span> <span class="tTag">Оптимальний вибір</span></div>
+              <div class="priceWrap">
+                <div class="priceRow">
+                  <div class="pricePill"><span id="gPrice" class="priceNum">—</span><span class="cur">грн</span></div>
+                  <div id="gOld" class="old">—&nbsp;грн</div>
+                </div>
+                <div id="gSave" class="saveBadge" style="display:none">Економія — <b>—&nbsp;грн</b></div>
+              </div>
+            </div>
+            <ul class="tList">
+              <li>Доступ <b>3 місяці</b></li>
+              <li><b>Без</b> зворотнього зв'язку</li>
+              <li>Сертифікат про <b>перегляд курсу</b></li>
+            </ul>
+            <a id="buyGroup" class="cta" href="#">Придбати груповий</a>
+          </article>
+
+          <!-- ІНДИВІДУАЛЬНИЙ -->
+          <article class="tariff" aria-labelledby="t-i-name" style="outline:1px solid rgba(142,243,199,.18)">
+            <div class="tHead">
+              <div class="tName" id="t-i-name"><span class="tLabel">Індивідуальний</span> <span class="tTag">ХІТ</span></div>
+              <div class="priceWrap">
+                <div class="priceRow">
+                  <div class="pricePill"><span id="iPrice" class="priceNum">—</span><span class="cur">грн</span></div>
+                  <div id="iOld" class="old">—&nbsp;грн</div>
+                </div>
+                <div id="iSave" class="saveBadge" style="display:none">Економія — <b>—&nbsp;грн</b></div>
+              </div>
+            </div>
+            <ul class="tList">
+              <li>Доступ <b>8 місяців</b></li>
+              <li><b>Зворотній</b> зв'язок</li>
+              <li>Сертифікат <b>після проходження</b></li>
+              <li><b>Бонуси:</b> Гайд по відшаруванням</li>
+            </ul>
+            <a id="buyIndiv" class="cta" href="#">Придбати індивідуальний</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+      <h2>Про мене</h2>
+      <p class="aboutLead">Привіт, я Анна Філіпська</p>
+      <div class="aboutCard">
+        <ul class="aboutList">
+          <li class="aboutItem"><span class="icon"></span><span class="txt">За <span class="accent">6 років</span> зробила понад <span class="accent">5000 манікюрів</span>.</span></li>
+          <li class="aboutItem"><span class="icon"></span><span class="txt"><span class="accent">90%</span> моїх учениць почали заробляти вже <b>після бази</b>.</span></li>
+          <li class="aboutItem"><span class="icon"></span><span class="txt">Допомогла майстриням підняти чек у <span class="accent">2–3 рази</span>.</span></li>
+          <li class="aboutItem"><span class="icon"></span><span class="txt">Мої учениці вже відкрили <b>власні кабінети</b>.</span></li>
+          <li class="aboutItem"><span class="icon"></span><span class="txt">Знаю, як перетворити хобі на <span class="accent">прибуткову справу</span>.</span></li>
+          <li class="aboutItem"><span class="icon"></span><span class="txt">Створила курс <b>Next Level</b> — для майстрів, які хочуть вийти на <span class="accent">новий рівень</span>.</span></li>
+          <li class="aboutItem"><span class="icon"></span><span class="txt">Допомагаю скоротити час роботи з <span class="accent">4 годин</span> до <span class="accent">1.5</span> — <b>без втрати якості</b>.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PROGRAM ===== -->
+    <section id="program" class="section">
+      <div class="head">
+        <h2>Програма курсу</h2>
+        <div class="sub">Три доріжки: від комбінованого манікюру — до роботи з твердими матеріалами та гелевої техніки</div>
+      </div>
+
+      <div class="trackGrid">
+        <!-- 1. Комбінований манікюр -->
+        <details class="track" open>
+          <summary class="tHead">
+            <div class="tTitle"><span class="tDot"></span> Комбінований манікюр</div>
+            <div class="tBadge">5 модулів</div>
+            <div class="tChevron">⌄</div>
+          </summary>
+          <ol class="tListPro">
+            <li><div class="num"></div><div class="txt">Вибір <b>інструменту</b></div></li>
+            <li><div class="num"></div><div class="txt">Про <b>фрези</b></div></li>
+            <li><div class="num"></div><div class="txt"><b>Робота з фрезою</b></div></li>
+            <li><div class="num"></div><div class="txt"><b>Зріз</b> ножицями</div></li>
+            <li><div class="num"></div><div class="txt"><b>Підготовка</b> нігтів до покриття</div></li>
+          </ol>
+        </details>
+
+        <!-- 2. Тверді матеріали -->
+        <details class="track" open>
+          <summary class="tHead">
+            <div class="tTitle"><span class="tDot"></span> Тверді матеріали</div>
+            <div class="tBadge">9 модулів</div>
+            <div class="tChevron">⌄</div>
+          </summary>
+          <ol class="tListPro">
+            <li><div class="num"></div><div class="txt"><b>Зняття</b> матеріалу</div></li>
+            <li><div class="num"></div><div class="txt"><b>Класифікація</b> твердих матеріалів</div></li>
+            <li><div class="num"></div><div class="txt"><b>Підбір</b> матеріалу під тип нігтьової пластини</div></li>
+            <li><div class="num"></div><div class="txt"><b>Укріплення</b> квадрату</div></li>
+            <li><div class="num"></div><div class="txt"><b>Опил</b> чіткого квадрату</div></li>
+            <li><div class="num"></div><div class="txt"><b>Випилювання</b> зворотної сторони нігтя</div></li>
+            <li><div class="num"></div><div class="txt">Укріплення нігтів <b>в нуль</b></div></li>
+            <li><div class="num"></div><div class="txt"><b>Реставрація</b> чіткого квадрату</div></li>
+            <li><div class="num"></div><div class="txt">Реставрація <b>клюючих</b> нігтів</div></li>
+          </ol>
+        </details>
+
+        <!-- 3. Техніка роботи з гелем -->
+        <details class="track" open>
+          <summary class="tHead">
+            <div class="tTitle"><span class="tDot"></span> Техніка роботи з гелем</div>
+            <div class="tBadge">4 модулі</div>
+            <div class="tChevron">⌄</div>
+          </summary>
+          <ol class="tListPro">
+            <li><div class="num"></div><div class="txt"><b>Схема</b> викладки гелю</div></li>
+            <li><div class="num"></div><div class="txt">Робота <b>гелем-желе</b> та полігелем</div></li>
+            <li><div class="num"></div><div class="txt"><b>Схеми френчу</b> на різних формах і довжинах</div></li>
+            <li><div class="num"></div><div class="txt"><b>Ідеальне покриття</b> під кутикулу</div></li>
+          </ol>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section id="reviews" class="section">
+      <div class="head">
+        <h2>Відгуки</h2>
+        <div class="muted">Результати та враження після Next Level</div>
+      </div>
+      <div class="reviewsArrows">
+        <button class="arrow prev" type="button" aria-label="Попередній">‹</button>
+        <button class="arrow next" type="button" aria-label="Наступний">›</button>
+      </div>
+      <div class="reel" id="reviewsReel" aria-label="Слайдер відгуків">
+        <article class="slide" data-name="Оля">
+          <div class="msg">
+            <div class="avatar" title="Оля"><span class="name">Оля</span></div>
+            <div class="bubble">
+              <div class="quote">Привіт, хочу поділитися враженнями про курс підвищення — це було дуже круто ✨ Теорія і практика сприймалися легко ❤️ Результат перевищив очікування 🙌 Безмежно вдячна за твій вклад! Швидкість і якість зросли моментально: час роботи з однією клієнткою скоротився щонайменше на пів години 👏 Дуже рекомендую всім майстрам пройти цей курс!</div>
+              <div class="b-foot"><div class="stars">★★★★★</div></div>
+            </div>
+          </div>
+        </article>
+        <article class="slide" data-name="Марія">
+          <div class="msg">
+            <div class="avatar" title="Марія"><span class="name">Марія</span></div>
+            <div class="bubble">
+              <div class="quote">Сьогодні було максимально круто! Бачу великі зміни у вирівнюванні та манікюрі — взагалі, це пушка! З твоєю допомогою розібрала всі нюанси квадрату: як пиляти й на що звертати увагу. Емоції переповнюють, я щаслива і задоволена! Є над чим працювати, буду робити ще краще — не підведу! 💪</div>
+              <div class="b-foot"><div class="stars">★★★★★</div></div>
+            </div>
+          </div>
+        </article>
+        <article class="slide" data-name="Ірина">
+          <div class="msg">
+            <div class="avatar" title="Ірина"><span class="name">Ірина</span></div>
+            <div class="bubble">
+              <div class="quote">Привіт! По часу прискорилась конкретно👌 До 2 годин уже роблю укріплення з френчем 🙌 Усі поради використовую — зайвих рухів немає, носибельність значно краща 🥰</div>
+              <div class="b-foot"><div class="stars">★★★★★</div></div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="navDots" id="reviewsDots" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="brand">Анна Філіпська</div>
+      <div class="links"><a href="#offer">Договір оферти</a> · <a href="#privacy">Політика конфіденційності</a></div>
+      <p class="legal">Умови повернення: згідно із Законом України «Про захист прав споживачів» гарантуємо повернення коштів
+        протягом 14 днів, якщо курс вам не підійде.</p>
+      <small class="copy">© Created by | All rights Reserved</small>
+    </footer>
+  </div>
+
+  <!-- Floating CTA -->
+  <div class="floater" id="floatCta" aria-hidden="true">
+    <div class="floater-inner"><a id="buyFloat" class="cta">Отримати доступ до курсу</a></div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="co-backdrop" id="checkoutBackdrop" aria-hidden="true">
+    <div class="co-modal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+      <div class="co-top">
+        <div class="co-title" id="coTitle">Оформлення доступу</div>
+        <button id="coClose" class="co-close" aria-label="Закрити">✕</button>
+      </div>
+      <div class="ps" role="tablist" aria-label="Вибір тарифу">
+        <button id="psGroup" data-plan="group" role="tab" aria-selected="true" aria-pressed="true">
+          <div class="pname">Груповий</div>
+          <div class="pprice" id="psGroupPrice">— грн</div>
+        </button>
+        <button id="psIndiv" data-plan="individual" role="tab" aria-selected="false" aria-pressed="false">
+          <div class="pname">Індивідуальний</div>
+          <div class="pprice" id="psIndivPrice">— грн</div>
+        </button>
+      </div>
+      <form id="checkoutForm" novalidate>
+        <div class="co-grid">
+          <div class="field"><label for="coFirst">Ім’я</label><input id="coFirst" type="text" autocomplete="given-name" placeholder="Анна"></div>
+          <div class="field"><label for="coLast">Прізвище</label><input id="coLast" type="text" autocomplete="family-name" placeholder="Філіпська"></div>
+          <div class="field full"><label for="coEmail">Email</label><input id="coEmail" type="email" autocomplete="email" placeholder="name@email.com"></div>
+          <div class="field full"><label for="coPhone">Телефон (для зв’язку)</label><input id="coPhone" type="tel" inputmode="tel" placeholder="+380"></div>
+        </div>
+        <div class="agree" style="margin-top:10px"><input id="coAgree" type="checkbox"><label for="coAgree">Погоджуюсь з <a href="#offer">офертою</a> і <a href="#privacy">політикою конфіденційності</a>.</label></div>
+        <div id="coErr" class="co-err" role="alert"></div>
+        <div class="co-actions">
+          <div class="co-pay">До сплати: <b id="coPay">— грн</b></div>
+          <button id="coBtn" class="cta" type="submit">Перейти до оплати</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    /* ===== CONFIG ===== */
+    const WORKER="https://filipskanails-pay.timanov-business.workers.dev";
+    const THANK ="https://filipskanails.github.io/filipskanails/thankyou.html";
+    const TITLE ="Доступ до курсу Next Level";
+    const PROMO_HOURS=5;
+    const GROUP_BASE=2, GROUP_DISC=1, INDIV_BASE=4, INDIV_DISC=2;
+    const MONO_ENDPOINT = WORKER + "/mono/checkout";
+
+    const $=s=>document.querySelector(s);
+    const fmt=n=>new Intl.NumberFormat("uk-UA").format(n);
+
+    /* ===== HERO layout ===== */
+    function cssVarNum(el,name,fallback){ const v=getComputedStyle(el).getPropertyValue(name).trim(); const num=parseFloat(v); return Number.isFinite(num)?num:fallback; }
+    function computeHeroLayout(){
+      const stage=$("#hero"), text=stage?.querySelector('.hero-text'), img=stage?.querySelector('.hero-img'), cta=stage?.querySelector('.hero-cta');
+      if(!stage||!text||!img||!cta) return;
+      const GAP=cssVarNum(stage,'--gap',8), BUBBLE=cssVarNum(stage,'--bubble-offset',200), R=cssVarNum(stage,'--cta-ratio',.68), EXTRA=cssVarNum(stage,'--cta-extra',40);
+      const textBottom=text.offsetTop+text.offsetHeight, imgTop=textBottom+GAP; img.style.top=imgTop+"px";
+      const imgH=img.getBoundingClientRect().height||420;
+      const ctaTop=Math.round(imgTop+imgH*R)+EXTRA, bubbleTop=Math.round(imgTop+BUBBLE), glowTop=Math.round(imgTop+imgH*.52)-220;
+      stage.style.setProperty('--img-top', imgTop+'px'); stage.style.setProperty('--cta-top', ctaTop+'px'); stage.style.setProperty('--bubble-top', bubbleTop+'px'); stage.style.setProperty('--glow-top', Math.max(0,glowTop)+'px');
+      const needH=Math.round(ctaTop + cta.offsetHeight + 24); stage.style.setProperty('--hero-h', needH+'px'); stage.style.height=needH+'px';
+    }
+    const ro=new ResizeObserver(()=>computeHeroLayout());
+    window.addEventListener('DOMContentLoaded', ()=>{
+      const img=$('.hero-img'), text=$('.hero-text'); if(img) ro.observe(img); if(text) ro.observe(text); if(img && !img.complete){ img.addEventListener('load', computeHeroLayout, {once:true}); }
+      computeHeroLayout();
+    });
+    window.addEventListener('orientationchange', computeHeroLayout);
+    window.addEventListener('load', computeHeroLayout);
+
+    /* ===== PROMO timer & prices ===== */
+    const COUNT=$("#countdown");
+    const key="promoEndsAt-v1";
+    const now=Date.now();
+    let ends=parseInt(localStorage.getItem(key)||"0",10);
+    if(!ends||ends<now){ ends=now+PROMO_HOURS*60*60*1000; localStorage.setItem(key,String(ends)); }
+
+    function renderHeroPrice(active, old){
+      const line=$("#priceLine");
+      if(line){
+        line.innerHTML = old && old>active
+          ? `лише ${fmt(active)}&nbsp;грн <span class="oldline">${fmt(old)}&nbsp;грн</span>`
+          : `ціна ${fmt(active)}&nbsp;грн`;
+      }
+    }
+
+    function setTariffPrices(promo){
+      const gActive = promo ? GROUP_DISC : GROUP_BASE;
+      const iActive = promo ? INDIV_DISC : INDIV_BASE;
+      const gOld    = promo ? GROUP_BASE : null;
+      const iOld    = promo ? INDIV_BASE : null;
+
+      const gP=$("#gPrice"), gO=$("#gOld"), iP=$("#iPrice"), iO=$("#iOld");
+      if(gP) gP.textContent = fmt(gActive);
+      if(iP) iP.textContent = fmt(iActive);
+      if(gO){ if(gOld){ gO.style.display="block"; gO.innerHTML=`${fmt(gOld)}&nbsp;грн`; } else gO.style.display="none"; }
+      if(iO){ if(iOld){ iO.style.display="block"; iO.innerHTML=`${fmt(iOld)}&nbsp;грн`; } else iO.style.display="none"; }
+
+      const gS=$("#gSave"), iS=$("#iSave");
+      if(promo){
+        if(gS){ gS.style.display="inline-block"; gS.innerHTML = `Економія — <b>${fmt(gOld-gActive)}&nbsp;грн</b>`; }
+        if(iS){ iS.style.display="inline-block"; iS.innerHTML = `Економія — <b>${fmt(iOld-iActive)}&nbsp;грн</b>`; }
+      }else{
+        if(gS) gS.style.display="none";
+        if(iS) iS.style.display="none";
+      }
+
+      renderHeroPrice(gActive, gOld);
+    }
+
+    function tick(){
+      const left=Math.max(0, ends - Date.now());
+      const promoActive = left>0;
+
+      if(COUNT) COUNT.style.display = promoActive ? "flex" : "none";
+      setTariffPrices(promoActive);
+
+      if(!promoActive) return;
+
+      const h=Math.floor(left/3600000), m=Math.floor((left%3600000)/60000), s=Math.floor((left%60000)/1000);
+      const pad=n=>String(n).padStart(2,"0");
+      $("#cd-h").textContent=pad(h); $("#cd-m").textContent=pad(m); $("#cd-s").textContent=pad(s);
+      setTimeout(tick,1000);
+    }
+    tick();
+
+    /* ===== REVIEWS slider (30s ping-pong) ===== */
+    (function(){
+      const reel = document.getElementById('reviewsReel');
+      if(!reel) return;
+
+      const AUTOSCROLL_MS = 30000;
+      const slides = Array.from(reel.children);
+      const dotsWrap = document.getElementById('reviewsDots');
+
+      const firstFrom = name=>{
+        if(!name) return "";
+        const parts = String(name).trim().split(/\s+/).filter(Boolean);
+        return (parts[0]||"").trim();
+      };
+      slides.forEach(sl=>{
+        const raw = sl.getAttribute('data-name')||"";
+        const first = firstFrom(raw);
+        const av = sl.querySelector('.avatar .name');
+        const avWrap = sl.querySelector('.avatar');
+        if(av){ av.textContent = first || "“"; }
+        if(avWrap){ avWrap.setAttribute('title', first || ""); }
+      });
+
+      dotsWrap.innerHTML = "";
+      slides.forEach((_,i)=>{
+        const b=document.createElement('button');
+        if(i===0) b.setAttribute('aria-current','true');
+        b.addEventListener('click', ()=>{ stop(); goTo(i); start(); });
+        dotsWrap.appendChild(b);
+      });
+      const dots = Array.from(dotsWrap.children);
+      const stepW = ()=> (reel.clientWidth*0.86 + 14);
+
+      let active = 0;
+      let dir = 1;
+      let timer = null;
+
+      function updateDots(i){ dots.forEach((d,idx)=>{ if(idx===i) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); }); }
+      function setActive(i){
+        if(i===active) return;
+        slides[active]?.classList.remove('is-active');
+        slides[i]?.classList.add('is-active');
+        active = i;
+        updateDots(i);
+      }
+      function goTo(i){
+        const N = slides.length;
+        let t = i;
+        if(i<0) t = N-1;
+        else if(i>=N) t = 0;
+        reel.scrollTo({ left: t*stepW(), behavior:'smooth' });
+      }
+      function autoStep(){
+        if(dir>0 && active >= slides.length-1) dir = -1;
+        else if(dir<0 && active <= 0) dir = 1;
+        goTo(active + dir);
+      }
+      function start(){ if(timer) return; timer = setInterval(autoStep, AUTOSCROLL_MS); }
+      function stop(){ clearInterval(timer); timer=null; }
+
+      const thresholds = Array.from({length: 41}, (_,i)=> i/40);
+      const ratios = new Array(slides.length).fill(0);
+      const io = new IntersectionObserver((entries)=>{
+        for(const e of entries){
+          const idx = slides.indexOf(e.target);
+          if(idx>=0) ratios[idx] = e.intersectionRatio;
+        }
+        let bestIdx = active, bestRatio = ratios[active];
+        for(let i=0;i<ratios.length;i++){ if(ratios[i] > bestRatio){ bestRatio = ratios[i]; bestIdx = i; } }
+        if(bestRatio >= 0.96){ setActive(bestIdx); }
+      },{ root: reel, threshold: thresholds });
+      slides.forEach(sl => io.observe(sl));
+
+      const prevBtn = document.querySelector('#reviews .prev');
+      const nextBtn = document.querySelector('#reviews .next');
+      if(prevBtn) prevBtn.addEventListener('click', ()=>{ stop(); dir=-1; goTo(active-1); start(); });
+      if(nextBtn) nextBtn.addEventListener('click', ()=>{ stop(); dir=+1; goTo(active+1); start(); });
+
+      ['pointerdown','touchstart','wheel','keydown','focusin','mouseenter'].forEach(ev=>{ reel.addEventListener(ev, stop, {passive:true}); });
+      ['pointerup','touchend','mouseleave','blur'].forEach(ev=>{ reel.addEventListener(ev, start, {passive:true}); });
+
+      slides[0]?.classList.add('is-active'); updateDots(0); start();
+    })();
+
+    /* ===== Pulse tariffs after scroll ===== */
+    function visibleRatio(el){
+      if(!el) return 0;
+      const r=el.getBoundingClientRect(), vw=innerWidth, vh=innerHeight;
+      const ix=Math.max(0, Math.min(r.right, vw) - Math.min(r.left, vw));
+      const iy=Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, vh));
+      return (ix*iy) / Math.max(1, r.width*r.height);
+    }
+    function pulseTariffs(){
+      document.querySelectorAll('.tariff').forEach(card=>{
+        card.classList.add('pulse');
+        card.addEventListener('animationend', ()=>card.classList.remove('pulse'), {once:true});
+      });
+    }
+    function afterScrollSettledThenPulse(){
+      const card = document.querySelector('#promo .promoCard'); if(!card) return;
+      const ratio = visibleRatio(card);
+      if(ratio >= 0.6){ pulseTariffs(); return; }
+      const io = new IntersectionObserver((entries, obs)=>{
+        const e = entries[0];
+        if(e && e.isIntersecting && e.intersectionRatio >= 0.6){ pulseTariffs(); obs.disconnect(); }
+      }, { threshold: [0.6] });
+      io.observe(card);
+    }
+    function waitScrollEnd(callback, idleMs=140, capMs=2000){
+      let t=null, done=false;
+      const onEnd=()=>{ if(done) return; done=true; removeEventListener('scroll', onScroll, {passive:true}); clearTimeout(t); callback(); };
+      const onScroll=()=>{ clearTimeout(t); t=setTimeout(onEnd, idleMs); };
+      addEventListener('scroll', onScroll, {passive:true}); onScroll(); setTimeout(onEnd, capMs);
+    }
+
+    /* ===== floater + hero CTA ===== */
+    function scrollToPromoAndPulse(){
+      const target = document.querySelector('#promo .tariffs') || document.querySelector('#promo');
+      if(!target) return;
+      const rect = target.getBoundingClientRect();
+      const y = rect.top + window.pageYOffset - 12; // чуть ниже шапки промо
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      waitScrollEnd(afterScrollSettledThenPulse);
+    }
+    (function(){
+      const floatBtn=$("#buyFloat"), topBtn=$("#buyTop");
+      if(floatBtn){ floatBtn.textContent="Отримати доступ до курсу"; floatBtn.addEventListener('click', e=>{ e.preventDefault(); scrollToPromoAndPulse(); }); }
+      if(topBtn){ topBtn.addEventListener('click', e=>{ e.preventDefault(); scrollToPromoAndPulse(); }); }
+    })();
+
+    /* ===== floater shows only when hero & promo off-screen ===== */
+    (function(){
+      const hero=$("#hero"), promo=$("#promo"), floater=$("#floatCta");
+      if(!hero||!promo||!floater) return;
+
+      function computeInView(el){
+        const r = el.getBoundingClientRect();
+        const vh = innerHeight, vw = innerWidth;
+        const vert = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
+        const hor  = Math.max(0, Math.min(r.right, vw) - Math.max(r.left, 0));
+        const area = (vert*hor) / Math.max(1, r.width*r.height);
+        return area > 0.12;
+      }
+      function updateNow(){
+        const heroIn = computeInView(hero);
+        const promoIn = computeInView(promo);
+        if(heroIn || promoIn){ floater.classList.remove("show"); }
+        else{ floater.classList.add("show"); }
+      }
+      const io = new IntersectionObserver(()=>updateNow(), { threshold:[0, .1, .2, .5, .8, 1], rootMargin:"0px" });
+      io.observe(hero); io.observe(promo);
+      updateNow();
+      addEventListener('scroll', updateNow, {passive:true});
+      addEventListener('resize', updateNow);
+    })();
+
+    /* ===== MODAL (checkout) ===== */
+    (function(){
+      const backdrop=$("#checkoutBackdrop"), coForm=$("#checkoutForm"), coBtn=$("#coBtn"), coErr=$("#coErr");
+      const bClose=$("#coClose"), bGroup=$("#psGroup"), bIndiv=$("#psIndiv");
+      let selectedPlan="group";
+
+      function currentPromoActive(){ const left=Math.max(0,(parseInt(localStorage.getItem("promoEndsAt-v1")||"0",10))-Date.now()); return left>0; }
+      function getPrices(){ const promo=currentPromoActive(); return { group: promo?GROUP_DISC:GROUP_BASE, indiv: promo?INDIV_DISC:INDIV_BASE }; }
+      function updatePlanUI(){
+        const p=getPrices();
+        $("#psGroupPrice").textContent=fmt(p.group)+" грн";
+        $("#psIndivPrice").textContent=fmt(p.indiv)+" грн";
+        $("#coPay").innerHTML=fmt(selectedPlan==="group"?p.group:p.indiv)+"&nbsp;грн";
+        [bGroup,bIndiv].forEach(btn=>{ const is=btn.dataset.plan===selectedPlan; btn.setAttribute("aria-pressed", String(is)); btn.setAttribute("aria-selected", String(is)); });
+      }
+      function openCheckout(plan){
+        selectedPlan=plan||"group"; updatePlanUI();
+        ["coFirst","coLast","coEmail","coPhone"].forEach(id=>{ const v=localStorage.getItem(id); if(v) $("#"+id).value=v; });
+        document.body.classList.add('modal-open');
+        backdrop.classList.add("show"); backdrop.removeAttribute("aria-hidden"); $("#coFirst").focus();
+      }
+      function closeCheckout(){
+        backdrop.classList.remove("show"); backdrop.setAttribute("aria-hidden","true");
+        document.body.classList.remove('modal-open');
+      }
+
+      const btnGroup=$("#buyGroup"), btnIndiv=$("#buyIndiv"); /* ← FIX: убрал лишнюю ']' */
+      if(btnGroup) btnGroup.addEventListener("click", e=>{e.preventDefault(); openCheckout("group");});
+      if(btnIndiv) btnIndiv.addEventListener("click", e=>{e.preventDefault(); openCheckout("individual");});
+      bGroup.addEventListener("click", ()=>{ selectedPlan="group"; updatePlanUI(); });
+      bIndiv.addEventListener("click", ()=>{ selectedPlan="individual"; updatePlanUI(); });
+      bClose.addEventListener("click", closeCheckout);
+      backdrop.addEventListener("click", e=>{ if(e.target===backdrop) closeCheckout(); });
+      document.addEventListener("keydown", e=>{ if(e.key==="Escape" && backdrop.classList.contains("show")) closeCheckout(); });
+
+      const isEmail=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      const normPhone=v=>v.replace(/[^\d+]/g,"");
+
+      coForm.addEventListener("submit", async e=>{
+        e.preventDefault(); coErr.classList.remove("show"); coErr.textContent="";
+        const firstName=$("#coFirst").value.trim(), lastName=$("#coLast").value.trim(), email=$("#coEmail").value.trim().toLowerCase(), phone=normPhone($("#coPhone").value.trim()), agree=$("#coAgree").checked;
+        if(firstName.length<2 || lastName.length<2){ coErr.textContent="Вкажіть ім’я та прізвище."; coErr.classList.add("show"); return; }
+        if(!isEmail(email)){ coErr.textContent="Некоректний email."; coErr.classList.add("show"); return; }
+        if(phone.length<10){ coErr.textContent="Некоректний телефон."; coErr.classList.add("show"); return; }
+        if(!agree){ coErr.textContent="Підтвердіть згоду з умовами."; coErr.classList.add("show"); return; }
+
+        ["coFirst","coLast","coEmail","coPhone"].forEach(id=>{ const v=$("#"+id).value.trim(); localStorage.setItem(id, v); });
+
+        const p=getPrices(); const amountUAH = selectedPlan==="group"?p.group:p.indiv;
+        coBtn.disabled=true; coBtn.textContent="Створюємо платіж…";
+
+        try{
+          const res=await fetch(MONO_ENDPOINT,{method:"POST", headers:{"content-type":"application/json"}, body:JSON.stringify({plan:selectedPlan, amountUAH, email, phone, firstName, lastName})});
+          if(!res.ok) throw new Error("Помилка сервера. Спробуйте ще раз.");
+          const data=await res.json(); // { pageUrl, invoiceId, reference }
+          const thankUrl = `${THANK}?ref=${encodeURIComponent(data.reference)}&invoiceId=${encodeURIComponent(data.invoiceId||'')}&pay=${encodeURIComponent(data.pageUrl)}&plan=${encodeURIComponent(selectedPlan)}`;
+          window.location.replace(thankUrl);
+        }catch(err){
+          console.error(err);
+          const isNetwork = (err && String(err.message).toLowerCase().includes('failed to fetch'));
+          coErr.textContent = isNetwork ? "Немає зв’язку з бекендом оплати (можливо, ендпоїнт /mono/checkout ще не розгорнутий або CORS)." : (err.message || "Не вдалося створити платіж.");
+          coErr.classList.add("show");
+          coBtn.disabled=false; coBtn.textContent="Перейти до оплати";
+        }
+      });
+    })();
+
+    /* ===== Program auto-toggle (REMOVED): управление только у пользователя ===== */
+  </script>
+</body>
+</html>
