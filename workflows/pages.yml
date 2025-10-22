@@ -1,0 +1,33 @@
+name: Pages: deploy (manual)
+
+on:
+  workflow_dispatch: {}   # Только вручную из вкладки Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Если сайт — «чистый» HTML/CSS/JS, ничего собирать не нужно,
+      # просто упаковываем весь репозиторий как артефакт:
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
