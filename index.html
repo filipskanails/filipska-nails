@@ -77,7 +77,7 @@
     .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:999px;background:
         radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.18), rgba(255,255,255,0) 55%),
         linear-gradient(135deg,var(--accent-2),var(--accent));color:#fff;font-weight:900;text-transform:uppercase;
-      font-size:clamp(18px,5vw,22px);letter-spacing:.3px;white-space:nowrap;box-shadow:var(--shadow), 0 0 0 1px rgba(255,255,255,.06) inset;text-shadow:0 1px 0 rgba(0,0,0,.18);}
+      font-size:clamp(18px,5vw,22px);letter-spacing:.3px;white-space:nowrap;box-shadow:var(--shadow);text-shadow:0 1px 0 rgba(0,0,0,.18);}
     .cta{ position:relative; overflow:hidden; }
     .cta::after{
       content:""; position:absolute; top:-60%; bottom:-60%; left:-120%;
@@ -224,7 +224,7 @@
     .aboutItem .icon{position:relative;width:32px;height:32px;border-radius:50%;flex:0 0 32px;
       background:conic-gradient(from 210deg, rgba(var(--accent2-rgb),.95), rgba(var(--accent2-rgb),.85), rgba(var(--accent-rgb),.95));
       box-shadow:0 4px 12px rgba(0,0,0,.35),0 0 0 4px rgba(var(--accent2-rgb),.12); border:1px solid #2b4136;overflow:hidden}
-    .aboutItem .icon::before{content:"";position:absolute;inset:2px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), rgba(255,255,255,.06));mix-blend:screen}
+    .aboutItem .icon::before{content:"";position:absolute;inset:2px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), rgba(255,255,255,.06));mix-blend-mode:screen}
     .aboutItem .icon::after{content:"";position:absolute;left:9px;top:10px;width:11px;height:6px;border-left:3px solid #052d21;border-bottom:3px solid #052d21;transform:rotate(-45deg)}
     .aboutItem .txt{flex:1;min-width:0;overflow-wrap:anywhere; font-size: clamp(16px, 4.6vw, 18px); }
 
@@ -563,6 +563,13 @@ details[open] .tChevron{ transform:rotate(180deg) }
     grid-template-columns: 1fr auto 26px;
   }
 }
+
+/* Kill any border/outline/shadow on the checkout button */
+#coBtn, #coBtn:focus, #coBtn:focus-visible, #coBtn:hover, #coBtn:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 </style>
 </head>
 <body>
@@ -572,13 +579,16 @@ details[open] .tChevron{ transform:rotate(180deg) }
 <img alt="Інструктор курсу" class="hero-img" src="img/main.png"/>
 <div class="hero-text">
 <div class="eyebrow">ОНЛАЙН КУРС ВІД ІНСТРУКТОРА МАНІКЮРУ <span class="accent nowrap">АННИ ФІЛІПСЬКОЇ</span></div>
+<div class="start-date" style="margin:6px 0 0; text-align:center;">
+  <span class="pBadge" style="font-size:13px;">Старт курсу — <b>25&nbsp;Грудня</b></span>
+</div>
 <h1 class="hl hl-mix">
 <span class="line l">ІНСТАКВАДРАТИ.</span><span class="line r">ІДЕАЛЬНИЙ КОМБІ.</span>
 <span class="line l">ІДЕАЛЬНИЙ ФРЕНЧ.</span><span class="line r">ТВІЙ NEXT LEVEL.</span>
 </h1>
 <p class="lead">Цей курс - твоя можливість перейти з "майстра базовика" у впевнену, сильну майстриню з власним стилем і високим прайсом.<br/>Next Level - коли твої роботи говорять самі за себе.</p>
 </div>
-<div class="hero-bubble" id="heroBubble">Клієнти шукають сучасних і професійних майстрів. Не втрачай свій шанс бути серед кращих!</div>
+<div class="hero-bubble" id="heroBubble">Клієнти обирають тих, хто працює на рівні. Підніми свій рівень і стань серед найкращих!</div>
 <div class="hero-cta">
 <a class="cta" href="#promo" id="buyTop">Придбати курс</a>
 </div>
@@ -615,9 +625,10 @@ details[open] .tChevron{ transform:rotate(180deg) }
 </div>
 </div>
 <ul class="tList">
-<li>Доступ <b>3 місяці</b></li>
-<li><b>Без</b> зворотнього зв'язку</li>
-<li>Сертифікат про <b>перегляд курсу</b></li>
+<li>Доступ  до уроків<b>3 місяці</b></li>
+<li><b>Без</b>зворотнього зв'язку</li>
+<li>Без<b>перевірок</b></li>
+<li>Сертифікат про<b>перегляд курсу</b></li>
 </ul>
 <a class="cta" href="#" id="buyGroup">Придбати груповий</a>
 </article>
@@ -637,8 +648,10 @@ details[open] .tChevron{ transform:rotate(180deg) }
 </div>
 </div>
 <ul class="tList">
-<li>Доступ <b>8 місяців</b></li>
-<li><b>Зворотній</b> зв'язок</li>
+<li>Доступ<b>назавжди</b></li>
+<li><b>Зворотній</b>зв'язок</li>
+<li>Перевірка<b>домашніх робіт</b></li>
+<li><b>Розбір</b>ваших помилок</li>
 <li>Сертифікат <b>після проходження</b></li>
 <li><b>Бонуси:</b> Гайд по відшаруванням</li>
 </ul>
@@ -768,9 +781,7 @@ details[open] .tChevron{ transform:rotate(180deg) }
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
 <div class="brand">Анна Філіпська</div>
-<div class="links"><a href="#offer">Договір оферти</a> · <a href="#privacy">Політика конфіденційності</a></div>
-<p class="legal">Умови повернення: згідно із Законом України «Про захист прав споживачів» гарантуємо повернення коштів
-        протягом 14 днів, якщо курс вам не підійде.</p>
+<div class="links"><a href="offer.html">Договір оферти</a> · <a href="privacy.html">Політика конфіденційності</a></div>
 <small class="copy">© Created by | All rights Reserved</small>
 </footer>
 </div>
@@ -830,14 +841,14 @@ details[open] .tChevron{ transform:rotate(180deg) }
 </div>
 <div class="agree" style="margin-top:6px">
 <input id="coAgree" type="checkbox"/>
-<label for="coAgree">Погоджуюсь з <a href="#offer">офертою</a> і <a href="#privacy">політикою конфіденційності</a>. <strong>Мої дані потрібні лише для зв’язку та доступу до курсу.</strong></label>
+<label for="coAgree">Погоджуюсь з <a href="offer.html" role="button" style="display:inline; padding:0; margin:0; border:0; text-decoration:underline; font-weight:600;">офертою</a> і <a href="privacy.html" role="button" style="display:inline; padding:0; margin:0; border:0; text-decoration:underline; font-weight:600;">політикою конфіденційності</a>. <strong>Персональні дані потрібні лише для зв’язку та доступу до курсу.</strong></label>
 </div>
 <div class="co-err" id="coErr" role="alert"></div>
 <div class="co-actions">
 <div class="co-pay">До сплати: <b id="coPay">— грн</b></div>
 <button class="cta" id="coBtn" type="submit">Перейти до оплати</button>
 </div>
-<div class="subnote">Після кліку відкриється захищена сторінка Monobank.</div>
+
 </form>
 </div>
 </div>
@@ -903,7 +914,7 @@ function unlockScroll(){
     const THANK ="https://filipskanails.github.io/filipskanails/thankyou.html";
     const TITLE ="Доступ до курсу Next Level";
     const PROMO_HOURS=5;
-    const GROUP_BASE=2, GROUP_DISC=1, INDIV_BASE=4, INDIV_DISC=2;
+    const GROUP_BASE=5000, GROUP_DISC=1000, INDIV_BASE=7000, INDIV_DISC=1500;
     const MONO_ENDPOINT = WORKER + "/mono/checkout";
 
     const $=s=>document.querySelector(s);
